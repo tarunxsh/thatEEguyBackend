@@ -37,7 +37,7 @@ span {
 
 .content {
 	padding: 30px 10px;
-	height: 80vh;
+	min-height: : 80vh;
 
 }
 
