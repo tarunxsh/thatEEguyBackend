@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+
+<section class="blog" id="blog">
+  <div class="articles" id="articles">
+    <br>
+    <div style="padding: 10px;">
+      <h1>My Drafts</h1>
+    <p>Below is a listing of your articles ready to be published</p>
+    </div>
+    <br><hr><hr><hr>
+<!-- <input type="text" id="search" onkeyup="filterList()" placeholder="Search Drafts .." title="What do you like to learn about?"> -->
+
+  {% for post in posts %}
+  <a href="{%url 'post_detail' pk=post.pk slug=post.slug%}">
+    		<div class="article">
+        	<div class="article-img">
+            	<img class="test-img" src="artbg.jpeg" alt="">
+        	</div>
+        	<div class="text">
+	            <h1>{{post.title}}</h1>
+	            <p>{{post.descp | truncatewords:50|striptags|safe}}</p>
+	            <p><span>{{post.author}}</span> | <span>{{post.created_date|naturaltime}}</span></p>
+	            
+        	</div>
+   		</div>
+		</a>
+		<hr>
+{%endfor%}
+</div>
+</section>
+
+{%endblock%}

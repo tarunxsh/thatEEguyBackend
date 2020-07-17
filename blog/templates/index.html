@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}
+
+
+<section class="blog" id="blog">
+
+	<!-- desktop right portion starts trends -->
+	<div class="right" id="right-fix">
+		<li><a href="#">#python</a></li>
+		<li><a href="#">#networking</a></li>
+		<li><a href="#">#linux</a></li>
+		<li><a href="#">#android</a></li>
+		<li><a href="#">#opensource</a></li>
+		<li><a href="#">#facts</a></li>
+		<li><a href="#">#doyouknow</a></li>		
+		<li><a href="#">#quotes</a></li>
+	</div>
+	<!-- desktop right portion ends -->
+
+	<!-- middle portion main blog | articles -->
+	<div class="articles" id="articles">
+		{% for post in posts %}
+		<a href="{{post.get_absolute_url}}">
+    		<div class="article">
+        	<!-- <div class="article-img">
+            	<img class="test-img" src="artbg.jpeg" alt="">
+        	</div> -->
+        	<div class="text">
+	            <h1 id="title">{{post.title}}</h1>
+	            <p id="descp">{{post.descp | truncatewords:40|striptags|safe}}</p><br>
+	            <p><span>{{post.author}}</span>&nbsp;|&nbsp;<span>{{post.published_date|naturaltime}}</span></p>
+	            
+        	</div>
+   		</div>
+		</a>
+		<hr>
+		{% endfor %}
+		
+	{% if is_paginated %}
+	<div class="pagination">
+		<ul>
+		{% if page_obj.has_previous %}
+		<li style="background-color: #a2cf6e"><a href="?page={{ page_obj.previous_page_number }}">&laquo;&laquo;</a></li>
+		{% else %}
+		<li class="disabled"><span>&laquo;&laquo;</span></li>
+		{% endif %}
+		{% for i in paginator.page_range %}
+		{% if page_obj.number == i %}
+		<li class="active"><span>{{ i }}</span></li>
+		{% else %}
+		<li><a href="?page={{ i }}">{{ i }}</a></li>
+		{% endif %}
+		{% endfor %}
+		{% if page_obj.has_next %}
+		<li style="background-color: #a2cf6e"><a href="?page={{ page_obj.next_page_number }}">&raquo;&raquo;</a></li>
+		{% else %}
+		<li class="disabled"><span>&raquo;&raquo;</span></li>
+		{% endif %}
+		</ul>
+	</div>
+	{% endif %}
+	
+
+	</div>
+	<!-- middle portion ends -->
+
+	
+</section>
+
+
+{% endblock %}

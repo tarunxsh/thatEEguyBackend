@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Post Edit</h2>
+
+<form action="." method="POST" id="edit_form">
+	{%csrf_token%}
+  Title:<br>
+  <input type="text" name="edited_title" value="{{post.title}}" >
+  <br><br><br>
+  Description:<br>
+  <textarea rows="15" cols="120" name="edited_descp" form="edit_form">{{post.descp}}</textarea>
+  <br><br>
+  {{form.as_p}}
+  <input type="submit" value="Submit">
+</form> 
+
+</body>
+</html>

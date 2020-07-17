@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+
+{% block content %}
+
+<article>
+	<div class="title">
+		<h1>{{post.title}}</h1>
+		<p>
+			{% if post.status == 'published' %}<span>{{ post.published_date|naturaltime }}</span> |{% endif %}
+			<span><b>{{post.author}}</b></span> | <span>5 min read</span>
+		</p>
+	</div>
+	{% if user.is_authenticated and  request.user == post.author %}
+	<div class="btn">
+		<a href="{%url 'post_edit' pk=post.pk%}">edit</a>
+		{%  if post.status == 'published' %}
+		<a href="{%url 'post_draft' pk=post.pk%}">draft</a>
+		{% else %}
+		<a href="{%url 'post_publish' pk=post.pk%}">publish</a>
+		{% endif %}
+		<a href="{%url 'post_remove' pk=post.pk%}">delete</a>
+	</div>
+    {% endif %}
+
+	<div class="content">
+		<!-- <img src="feature.jpg"> -->
+		<p>{{post.descp|safe}}</p>
+	</div>
+</article>
+
+
+
+{% endblock %}

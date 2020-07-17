@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block head %}
+<script src="{% static 'blog/js/tinymce/tinymce.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'blog/js/custom_tinymce.js' %}" ></script>
+{% endblock %}
+
+{% block content %}
+<article>
+	
+	<form action="" method="POST">
+		{% csrf_token%}
+		<div class="btn">
+			<input type="submit" value="Submit">
+		</div>		
+		<div id="title">{{form.title}}</div>
+		<div id="descp">{{form.descp}}</div>         
+	</form>
+</article>
+{% endblock %}
