@@ -226,6 +226,15 @@ nav a {
     background-color: #FFC107;
 }
 
+/*=============================================================*/
+/*tags css*/
+#tags a{
+    /*margin:5px;*/
+    /*border: 1px solid #000;*/
+    border-radius: 3px;
+    letter-spacing: .3em;
+    background-color: #FFC107;
+}
 
 /*=============================================================*/
 /*responsive css for big screens*/

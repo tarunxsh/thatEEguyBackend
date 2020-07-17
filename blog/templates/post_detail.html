@@ -5,6 +5,11 @@
 {% block content %}
 
 <article>
+	<p id="tags">
+		{% for tag in post.tags.all %}
+		<a href="{% url 'list_by_tag' tag_slug=tag.slug%}">#{{tag.name}}</a>
+		{% endfor %}
+	</p>
 	<div class="title">
 		<h1>{{post.title}}</h1>
 		<p>

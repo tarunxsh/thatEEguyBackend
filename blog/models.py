@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
+from taggit.managers import TaggableManager
 from django.urls import reverse
 
 # Create your models here.
@@ -52,3 +53,4 @@ class Post(models.Model):
 	#The first manager declared in a model becomes the default manager. 
 	objects = models.Manager() # The default manager.
 	published = PublishedManager() # Our custom manager.
+	tags = TaggableManager()

@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.utils.text import slugify
+from taggit.models import Tag
 from django.views.generic import ListView
 from .models import Post
 from django.contrib.auth.decorators import login_required
@@ -17,11 +18,26 @@ from .forms import PostForm
 
 # paginated article index
 class ListIndex(ListView):
-	queryset = Post.published.all()
-	context_object_name = 'posts'
+	#queryset = Post.published.all()
+	#context_object_name = 'posts'
+	model=Post 			#define one required model
 	paginate_by = 5
 	template_name = 'index.html'
 
+	def get_context_data(self, **kwargs):
+		context = super(ListIndex,self).get_context_data(**kwargs)
+		context['posts'] = Post.published.all()
+		context['tags'] = Tag.objects.all()
+		return context
+
+
+# ==========================================================================================
+# List by tag
+def ListByTag(request , tag_slug):
+	alltags=Tag.objects.all()
+	tag = get_object_or_404(Tag, slug=tag_slug)
+	tagged_posts = Post.published.all().filter(tags__in=[tag])
+	return render(request,'index.html',{'posts':tagged_posts,'tags':alltags})
 
 # ===========================================================================================
 # POST DETAIL
