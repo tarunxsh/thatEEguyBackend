@@ -236,6 +236,20 @@ nav a {
     background-color: #FFC107;
 }
 
+/*===============================================================*/
+/*footer*/
+footer{
+    padding:50px;
+    background-color: #001;
+    color: #fff;
+}
+
+footer ul{
+    list-style: none;
+}
+
+
+
 /*=============================================================*/
 /*responsive css for big screens*/
 @media (min-width:786px) {
@@ -294,7 +308,7 @@ nav a {
     }
 
     .right {
-        margin-top: 20px;
+        margin-top: 5px;
         flex-direction: column;
         align-self: flex-start;
         width: 30%;
@@ -321,13 +335,18 @@ nav a {
         letter-spacing: .2em;
         font-weight: bold;
     }
+    footer{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
 }    
 
 
 /*sticky applies when left right becomes sticky | using js*/
 .sticky {
     position: sticky;
-    top: 45px;
+    top: 50px;
     left: 10px;
 }
 

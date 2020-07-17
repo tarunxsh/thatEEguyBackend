@@ -64,14 +64,14 @@
 <!-- <div class="feature-container">
     <div class="scrolling-wrapper" role="region" aria-label="gallery" tabindex="0">
     	<div class="f1 f-item">
-        <img src="feature.jpg" alt="" class="fimg"></div>
+        <img src="https://www.hackingwithswift.com/uploads/matrix.jpg" alt="" class="fimg"></div>
     <div class="f2 f-item">
-        <img src="feature.jpg" alt="" class="fimg"></div>
+        <img src="https://www.hackingwithswift.com/uploads/matrix.jpg" alt="" class="fimg"></div>
     <div class="f3 f-item" >
-        <img src="feature.jpg" alt="" class="fimg"></div>
+        <img src="https://www.hackingwithswift.com/uploads/matrix.jpg" alt="" class="fimg"></div>
 </div>
-</div> -->
-
+</div>
+ -->
 
 </header>
 
@@ -79,7 +79,18 @@
 {% endblock %}
 
 
-<footer></footer>
+<footer>
+	<div>
+		<ul>
+			<li>Sitemap</li>
+			<li>About</li>
+			<li>Feeds</li>
+			<li>Privacy Policy</li>
+			<li>Made with <span style="color: red;font-size: 150%;">&hearts;</span></li>
+		</ul>
+	</div>
+	<div><h2><a href="{% url 'index' %}">thatEEguy</a></h2></div>
+</footer>
 <!-- <script type="text/javascript" src="main.js"></script> -->
 <script type="text/javascript" src="{% static 'blog/js/responsive-nav.js'%}"></script>
 {% block script %}
