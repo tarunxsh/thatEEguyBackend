@@ -3,7 +3,6 @@ from django.contrib import messages
 from django.contrib.auth.models import User,auth
 
 # Create your views here.
-
 def signup(request):
     if request.method == 'POST' :
         first_name = request.POST['first_name']
@@ -41,7 +40,7 @@ def signup(request):
 
 
     else:
-        return render(request,'signup.html')
+        return render(request,'accounts/signup.html')
 
 
 def login(request):
@@ -61,7 +60,7 @@ def login(request):
         
 
     else:    
-        return render(request,'login.html')
+        return render(request,'accounts/login.html')
 
 def logout(request):
     auth.logout(request)
