@@ -64,7 +64,8 @@ def newpost(request):
 
 	else:
 		form = PostForm()	
-		return render(request,'newpost.html',{'form':form})    
+		return render(request,'newpost.html',{'form':form,'view':1})    
+		# view:1 to show tags field in template
 
 
 
@@ -75,11 +76,13 @@ def newpost(request):
 def post_edit(request,pk):		
 	if request.method == 'POST':
 		edited_post = PostForm(request.POST)
+		print(request.POST['title'])
 		edited_slug=""
 		if edited_post.is_valid():
 			edited_title = request.POST['title']
 			edited_descp =request.POST['descp']
 			edited_slug = slugify(edited_title)
+			print(edited_slug)
 			Post.objects.filter(pk=pk).update(title=edited_title,descp=edited_descp,slug=edited_slug)
 		return redirect('post_detail',pk=pk,slug=edited_slug)
 
@@ -90,6 +93,7 @@ def post_edit(request,pk):
 		post = Post.objects.get(pk=pk)
 		form = PostForm(instance=post)
 		return render(request,'newpost.html',{'form':form, 'view':0})	
+		# view:0 to not show tags field in template
 
 
 

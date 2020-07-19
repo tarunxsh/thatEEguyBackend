@@ -53,4 +53,4 @@ class Post(models.Model):
 	#The first manager declared in a model becomes the default manager. 
 	objects = models.Manager() # The default manager.
 	published = PublishedManager() # Our custom manager.
-	tags = TaggableManager()
+	tags = TaggableManager(blank=True)
