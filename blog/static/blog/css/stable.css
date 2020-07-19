@@ -97,6 +97,7 @@ nav a {
 /*===============Nav-css-ends===================*/
 
 .body {
+    min-height: 80vh;
     margin-top: 45px;
 
 
@@ -228,17 +229,18 @@ nav a {
 
 /*=============================================================*/
 /*tags css*/
+
+
 #tags a{
-    /*margin:5px;*/
-    /*border: 1px solid #000;*/
+    padding: 2px;
     border-radius: 3px;
-    letter-spacing: .3em;
     background-color: #FFC107;
 }
 
 /*===============================================================*/
 /*footer*/
 footer{
+    margin-top: 100px;
     padding:50px;
     background-color: #001;
     color: #fff;

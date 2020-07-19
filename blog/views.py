@@ -21,7 +21,7 @@ class ListIndex(ListView):
 	#queryset = Post.published.all()
 	#context_object_name = 'posts'
 	model=Post 			#define one required model
-	paginate_by = 5
+	paginate_by = 3
 	template_name = 'index.html'
 
 	def get_context_data(self, **kwargs):
