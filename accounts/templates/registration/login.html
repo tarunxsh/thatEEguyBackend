@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Log-in{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/auth.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth">
+	
+	{% if form.errors %}</p>
+	<div class="err">
+		<p>
+			Your username and password didn't match.
+			Please try again.
+		</p>	
+	</div>
+	
+	{% endif %}
+	</p>
+
+	<div class="login-form">
+		<form action="{% url 'login' %}" method="post">
+			{{form.as_p}}
+
+			{% csrf_token %}
+			<input type="hidden" name="next" value="{{ next }}" />
+			<p id="submit"><input type="submit" value="Log-in"></p><br>
+		</form>
+		<p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
+ 	</div>	
+</div>
+ 
+{% endblock %}
+
+<!-- 
+form.as_p output
+<p>
+<label for="id_username">Username:</label><br>
+<input type="text" name="username" autofocus maxlength="254" required id="id_username" />
+</p>
+<p>
+<label for="id_password">Password:</label><br>
+<input type="password" name="password" required id="id_password" />
+</p> -->
