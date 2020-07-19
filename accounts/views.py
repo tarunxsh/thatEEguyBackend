@@ -1,68 +1,35 @@
-from django.shortcuts import render,redirect
+from django.http import HttpResponse
+from django.shortcuts import render , redirect
 from django.contrib import messages
-from django.contrib.auth.models import User,auth
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+from .forms import UserRegistrationForm
 
-def signup(request):
-    if request.method == 'POST' :
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
-        username = request.POST['username']
-        password1 = request.POST['password1']
-        password2 = request.POST['password2']
-        if  password1==password2:
-            if User.objects.filter(username=username).exists():
-                print('username taken')
-                messages.info(request,'username taken')
-                return redirect('register')
-                
 
-            elif  User.objects.filter(email=email).exists():
-                print('email taken')
-                messages.info(request,'email taken')
-                return redirect('register')   
-                
-            else:
-                user = User.objects.create_user(username=username,email=email,password=password1,first_name=first_name,last_name=last_name)
-                user.save()
-                print('user created')
-                return redirect('login')
+
+def register(request):
+    if request.method == 'POST':
+        user_form = UserRegistrationForm(request.POST)
+        if user_form.is_valid():
+            # Create a new user object but avoid saving it yet
+            new_user = user_form.save(commit=False)
+
+            print(new_user)
+            # Set the chosen password
+            new_user.set_password(user_form.cleaned_data['password'])
             
-
-        else:
-            print('password not matching')
-            messages.info(request,'password not matching')
-            return redirect('register')
+            # Create the user profile
+            # Create empty profile associated with the user
+            # Profile.objects.create(user=new_user)
             
+            # Save the User object
+            new = new_user.save()
+            # return render(request,'accounts/register_done.html',{'new_user': new_user})
         return redirect('login')
 
 
 
     else:
-        return render(request,'signup.html')
-
-
-def login(request):
-    if request.method=='POST':
-        username = request.POST['username']
-        password = request.POST['password']
-
-        user = auth.authenticate(username=username,password=password)
-    
-        if user is not None:
-            auth.login(request,user)
-            return redirect('index')
-
-        else:
-            messages.info(request,'invalid credentials') 
-            return redirect('register')   
-        
-
-    else:    
-        return render(request,'login.html')
-
-def logout(request):
-    auth.logout(request)
-    return redirect('index')
+        user_form = UserRegistrationForm()
+        return render(request,'accounts/register.html',{'user_form': user_form})
