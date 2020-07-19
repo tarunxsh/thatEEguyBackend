@@ -13,7 +13,7 @@
 <!-- <input type="text" id="search" onkeyup="filterList()" placeholder="Search Drafts .." title="What do you like to learn about?"> -->
 
   {% for post in posts %}
-  <a href="{%url 'post_detail' pk=post.pk slug=post.slug%}">
+ 
     		<div class="article">
         	<div class="article-img">
             	<img class="test-img" src="artbg.jpeg" alt="">
@@ -22,10 +22,13 @@
 	            <h1>{{post.title}}</h1>
 	            <p>{{post.descp | truncatewords:50|striptags|safe}}</p>
 	            <p><span>{{post.author}}</span> | <span>{{post.created_date|naturaltime}}</span></p>
-	            
+              <div class="btn">
+                <a href="{%url 'post_edit' pk=post.pk%}">edit</a>
+                <a href="{%url 'post_publish' pk=post.pk%}">publish</a>
+                <a href="{%url 'post_remove' pk=post.pk slug='drafts'%}">delete</a>
+              </div>  
         	</div>
    		</div>
-		</a>
 		<hr>
 {%endfor%}
 </div>

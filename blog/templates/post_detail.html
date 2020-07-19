@@ -25,7 +25,7 @@
 		{% else %}
 		<a href="{%url 'post_publish' pk=post.pk%}">publish</a>
 		{% endif %}
-		<a href="{%url 'post_remove' pk=post.pk%}">delete</a>
+		<a href="{%url 'post_remove' pk=post.pk slug='post' %}">delete</a>
 	</div>
     {% endif %}
 

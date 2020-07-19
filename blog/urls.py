@@ -11,7 +11,7 @@ urlpatterns = [
     path('post/<pk>/publish/', post_publish, name='post_publish'),
     path('post/<pk>/draft/', post_draft, name='post_draft'),
     path('drafts/', post_draft_list, name='post_draft_list'),
-    path('post/<pk>/remove/',post_remove, name='post_remove'),
+    path('post/<pk>/remove/<slug:slug>',post_remove, name='post_remove'),
     path('post/<pk>/edit/',post_edit, name='post_edit'),
 
 ]
