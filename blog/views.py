@@ -58,6 +58,7 @@ def newpost(request):
 			new_post = form.save(commit=False);
 			new_post.author = request.user
 			new_post.save()
+			form.save_m2m()     #to save tags  //tags are many2many field 
 			#modified save method of form to save author and slugify the title
 			return redirect(new_post.get_absolute_url()) 
 
@@ -88,7 +89,7 @@ def post_edit(request,pk):
 	else:
 		post = Post.objects.get(pk=pk)
 		form = PostForm(instance=post)
-		return render(request,'newpost.html',{'form':form,})	
+		return render(request,'newpost.html',{'form':form, 'view':0})	
 
 
 
