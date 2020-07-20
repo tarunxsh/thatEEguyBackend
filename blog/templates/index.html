@@ -43,16 +43,16 @@
 		{% endfor %}
 		
 	{% if is_paginated %}
-	<div class="pagination">
+	<div class="paginated">
 		<ul>
 		{% if page_obj.has_previous %}
 		<li style="background-color: #a2cf6e"><a href="?page={{ page_obj.previous_page_number }}">&laquo;&laquo;</a></li>
 		{% else %}
-		<li class="disabled"><span>&laquo;&laquo;</span></li>
+		<li class="disabled"><a>&laquo;&laquo;</a></li>
 		{% endif %}
 		{% for i in paginator.page_range %}
 		{% if page_obj.number == i %}
-		<li class="active"><span>{{ i }}</span></li>
+		<li class="active"><a>{{ i }}</a></li>
 		{% else %}
 		<li><a href="?page={{ i }}">{{ i }}</a></li>
 		{% endif %}
@@ -60,7 +60,7 @@
 		{% if page_obj.has_next %}
 		<li style="background-color: #a2cf6e"><a href="?page={{ page_obj.next_page_number }}">&raquo;&raquo;</a></li>
 		{% else %}
-		<li class="disabled"><span>&raquo;&raquo;</span></li>
+		<li class="disabled"><a>&raquo;&raquo;</a></li>
 		{% endif %}
 		</ul>
 	</div>

@@ -18,16 +18,18 @@ from .forms import PostForm
 
 # paginated article index
 class ListIndex(ListView):
-	#queryset = Post.published.all()
-	#context_object_name = 'posts'
-	model=Post 			#define one required model
-	paginate_by = 3
+	model=Post 							#define one required model
+	queryset = Post.published.all()
+	context_object_name = 'posts'       #default context : {model}_list
+	paginate_by = 5						#default context : page_obj
 	template_name = 'index.html'
 
+
+	#to add extra context vars using querysets
 	def get_context_data(self, **kwargs):
 		context = super(ListIndex,self).get_context_data(**kwargs)
-		context['posts'] = Post.published.all()
 		context['tags'] = Tag.objects.all()
+		print(context)
 		return context
 
 
