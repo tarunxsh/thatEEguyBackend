@@ -9,18 +9,18 @@
 }
 
 
-.login-form{
-	width:75%;
+.form {
+	width:90%;
 	margin-top: 20px;
 	border: 2px solid #FFC107;
 	padding:0; 
 }
 
-.login-form p  {
-	margin: 10px;
+.form p  {
+	margin:20px;
 }
 
-.login-form input {
+.form input {
 	width:100%;
 	height: 2rem;
 	font-size: 1rem;
@@ -40,17 +40,17 @@
 	box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.2), -2px 0px 10px 0px rgba(0, 0, 0, 0.19);
 }
 
-
+.helptext ul li {
+	list-style: none;
+}
 
 
 @media (min-width: 768px){
 	
-	.login-form{
+	.form{
 		width:30%; 
 	}
-	.login-form input {
-		width:100%;
-	}
+	
 	.err {
 		width:30%;
 	}

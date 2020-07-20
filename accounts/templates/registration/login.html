@@ -1,14 +1,10 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base_auth.html" %}
 {% block title %}Log-in{% endblock %}
 
-{% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/auth.css' %}">
-{% endblock %}
 
-{% block content %}
-<div class="auth">
-	
+{% block auth %}
+<div class="auth body">
+	<h1>Welcome Back 😎</h1>
 	{% if form.errors %}</p>
 	<div class="err">
 		<p>
@@ -18,15 +14,14 @@
 	</div>
 	
 	{% endif %}
-	</p>
 
-	<div class="login-form">
+	<div class="form login-form">
 		<form action="{% url 'login' %}" method="post">
 			{{form.as_p}}
 
 			{% csrf_token %}
 			<input type="hidden" name="next" value="{{ next }}" />
-			<p id="submit"><input type="submit" value="Log-in"></p><br>
+			<p id="submit"><input type="submit" value="Log-in"></p>
 		</form>
 		<p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
  	</div>	

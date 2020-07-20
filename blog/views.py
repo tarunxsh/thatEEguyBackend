@@ -29,7 +29,6 @@ class ListIndex(ListView):
 	def get_context_data(self, **kwargs):
 		context = super(ListIndex,self).get_context_data(**kwargs)
 		context['tags'] = Tag.objects.all()
-		print(context)
 		return context
 
 
