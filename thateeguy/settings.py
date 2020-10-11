@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+import django_heroku
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -23,16 +23,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'h!glek1z)uj#dpxin_xo0bhs#_*w1t3jcnjfe)jjg$9t0k_ds-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','192.168.43.55']
+ALLOWED_HOSTS = ['127.0.0.1','192.168.43.55' , 'thateeguy.herokuapp.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-     'accounts',            #at top to override django builtin auth templates
+    'accounts',            #at top to override django builtin auth templates
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -137,3 +137,6 @@ LOGOUT_URL = 'logout'
 #EMAIL CONSOLE BACKEND
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTH_PASSWORD_VALIDATORS = []  #
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
