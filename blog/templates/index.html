@@ -6,17 +6,15 @@
 
 <section class="blog body" id="blog">
 
+	<!-- =============TAGS-DIV================= -->
 	<!-- desktop right portion starts trends -->
-	<div class="tags_div">
-		<div class="right" id="right-fix">
-	
+	<div class="tags">
 		{% for tag in tags %}
 		<li><a href="{% url 'list_by_tag' tag_slug=tag.slug%}">#{{tag.name}}</a></li>
 		{% endfor %}
 	</div>
-	</div>
-	<!-- desktop right portion ends -->
 
+	<!-- ===================ARTICLE-DIV================================== -->
 	<!-- middle portion main blog | articles -->
 	<div class="articles" id="articles">
 		{% for post in posts %}
@@ -41,7 +39,9 @@
    		</a>
 		<hr>
 		{% endfor %}
-		
+	
+
+	<!-- ======================PAGINATION DIV================== -->
 	{% if is_paginated %}
 	<div class="paginated">
 		<ul>

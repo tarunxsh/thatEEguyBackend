@@ -106,43 +106,40 @@ nav a {
 
 }
 
-.tags_div{
-    position:sticky;
-    top:65px;
-    border-bottom: 1px solid #000;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+/*.article-img {
+    display: none;
 }
+*/
 
-
-.right {
-    background-color: #FFC107;
+/*==================new tag css========================*/
+.tags {
+    background-color: #FFD107;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    /*smooth scrolling.*/
     scroll-behavior: smooth;
+    border-bottom: 1px solid #000;
     align-items: center;
     font-size: 1.2rem;
     list-style: none;
-    
+    position:sticky;
+    top:65px;
+    z-index: 0;
 
 }
 
 /*=========hide_scrollbar==========*/
-.right::-webkit-scrollbar {
+.tags::-webkit-scrollbar {
     display: none;
     /*visibility: hidden;*/
 
 }
 
 
-.right li {
+.tags li {
     margin: 10px;
-}
-
-
-.article-img {
-    display: none;
 }
 
 
@@ -334,41 +331,39 @@ footer ul{
         width: 60%;
     }
 
-    .tags_div{
-        position: sticky;
-        top:75px;
-        width: 25%;
-        margin-top: 5px;
-        align-self: flex-start;
-        border: 0px;
+    
+    /*======================== desktop-TAGS-css===========*/
+    .tags {
+    background-color: #fff;
+    align-self: flex-start;
+    width:400px;
+    flex-wrap: wrap;
     }
 
-
-
-    .right {
-        margin: 0 auto;
-        flex-direction: column;
-        max-height: 60vh;
+    .tags li {
+    list-style: none;
+    margin:3px;
+    flex-grow: 3;
+    text-align: center;
+    border-radius: 2px;
+    background-color: #FFD107;
+    transition: background-color .2s linear;
     }
 
-    .right li {
-        text-align: center;
-        padding: 10px;
-        margin:0; 
-        width: 100%;
-    }
-    .right li:hover{
-        background-color: #fff;
+    .tags a{
+    display: inline-block;
+    padding: 5px;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: #000;
     }
 
-    .right a{
-        transition: all .2s linear;
+    .tags li:hover {
+    background-color: #FFA12F;
+    letter-spacing: 0.1em;
+    transition: .3s  ease;
     }
 
-    .right a:hover {
-        letter-spacing: .2em;
-        font-weight: bold;
-    }
     footer{
         display: flex;
         justify-content: space-between;
