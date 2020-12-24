@@ -10,8 +10,7 @@
 	<meta name="author" content="Tarunesh" />
 	<title>thatEEguy 2.0</title>
 	
-	<!-- ===================================================================================================== -->
-	<!-- CSS -->
+	<!-- ===============================CSS======================================= -->
 	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/stable.css'%}">
 	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/article.css'%}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -28,9 +27,10 @@
 	<div class="container container-flex nav-container">
 
 		<div class="mobile">
-			<!-- <div class="mob-icon"><i class="fa fa-bars fa-2x" onclick="displaynav()"></i></div> -->
 			<div class="logo">
 				<span><a href="{% url 'index' %}">thatEEguy</a></span>
+			</div>
+			<div class="mob-icon"><i class="fa fa-bars fa-2x" onclick="displaynav()"></i>
 			</div>
 			<!-- <div class="mob-icon"><i class="fa fa-search fa-2x" onclick="displaysearch()"></i></div> -->
 		</div>
@@ -81,18 +81,11 @@
 
 
 <footer>
-	<div>
-		<ul>
-			<li>Sitemap</li>
-			<li>About</li>
-			<li>Feeds</li>
-			<li>Privacy Policy</li>
-			<li>Made with <span style="color: red;font-size: 150%;">&hearts;</span></li>
-		</ul>
+	<div class="logo">
+		<span><a href="{% url 'index' %}">thatEEguy</a></span>
 	</div>
-	<div><h2><a href="{% url 'index' %}">thatEEguy</a></h2></div>
+	<div>Made with <span style="color: red;font-size: 1.2em;">&hearts;</span></div>
 </footer>
-<!-- <script type="text/javascript" src="main.js"></script> -->
 <script type="text/javascript" src="{% static 'blog/js/responsive-nav.js'%}"></script>
 {% block script %}
 {%endblock%}

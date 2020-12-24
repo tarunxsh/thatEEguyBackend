@@ -1,7 +1,5 @@
 body {
     margin: 0;
-    background-color: white;
-    font-size: 1.15rem;
 }
 
 a{
@@ -15,19 +13,15 @@ textarea:focus, input:focus{
 
 
 header {
-    /* text-align: center; */
     background: #f8f8f8;
     padding: 2em 0;
     text-align: center;
     padding-bottom: 0;
     margin-bottom: 0;
+    
 }
 
-@media (min-width: 786px){
-header {
-    padding-bottom: 1em;
-}
-}
+
 
 .container {
     width: 90%;
@@ -36,24 +30,18 @@ header {
     margin: 0 auto;
 }
 
-.container-flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
+.nav-container{
+    padding-bottom: 1rem;
 }
 
 @media (min-width: 786px){
-
 .container-flex {
+    display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 }
 
-.nav-container {
-    /*border: 1px solid blue;*/
-    align-items: center;
-}
 
 .logo {
       /*border: 1px solid red; */
@@ -66,23 +54,66 @@ header {
       display: none;
 }
 
+.mobile {
+      /*border: 1px solid red;*/
+      display: flex;
+      justify-content: space-between; 
+}
+
+nav{
+     /*border: 1px solid red; */
+     /*margin:0;*/
+}
+
 nav ul {
-    /* border: 3px solid green; */
+    margin:0;
+    /*border: 3px solid green; */
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     padding: 0;
 }
 
+nav ul li{
+    padding: 0;
+    border-bottom: 1px solid #143774;
+}
+
+nav a {
+    /*border: 3px solid green; */
+    display: block;
+    margin:0;
+    padding: 0.4rem;
+}
+
+
+/*on small screens */
+/*initially nav display is none*/
+/*onclick it is block*/
+nav {
+    display:none;
+}
+.clicked {
+    display: block;
+}
+
 @media (min-width: 786px){
-nav ul {
-    flex-direction: row;
+    nav {
+        display: block;
+    }
+
+    nav ul {
+        /*border: 1px solid red; */
+        display: flex;
+        justify-content: center;
+    }
+    nav ul li {
+        /*margin: 0 1em;*/
+        border: 0;
+    }
+    .mob-icon {
+        display: none;
+    }
 }
-nav li {
-    margin: 0 1em;
-}
-}
+
 
 .blog {
     margin-top: 2em;
@@ -91,32 +122,28 @@ nav li {
 /*.articles {
     border:1px solid red;
 }
+.article {
+    border:1px solid red;
+}
 .sidebar {
     border:1px solid red;
 }*/
 @media (min-width: 786px){
-.articles {
-    width: 65%;
-    /*border:1px solid red;*/
-}
-.blog {
-    min-height: 80vh;
-}
-.sidebar {
-    /*border:1px solid red;*/
-    width:30%;
-}
-
-}
-
-
-
-.article {
-    /*border:1px solid red;*/
+    .articles {
+        width: 65%;
+        /*border:1px solid red;*/
+    }
+    .blog {
+        min-height: 80vh;
+    }
+    .sidebar {
+        /*border:1px solid red;*/
+        width:30%;
+    }
 }
 
 #title {
-    margin-top: 0;
+    /*margin-top: 0;*/
     color: #143774;
 }
 
@@ -125,7 +152,6 @@ nav li {
 }
 
 .tags{
-
     padding: 10px;
     list-style: none;
     display: flex;
@@ -145,18 +171,21 @@ nav li {
     transition: background-color .2s linear;
     }
 
+.btn li{
+    /*border: 1px solid red;*/
+    flex-grow: initial;
+}
 
-    .tags li:hover {
+.tags li:hover {
     background-color: #FFA12F;
     letter-spacing: 0.2px;
     transition: .3s  ease;
-    }
-
-@media (min-width: 786px){
-
 }
 
 
+.drafts {
+    margin-top: 2em;
+}
 .draftsheader{
     /*border:1px solid red;*/
     padding:20px;
@@ -164,19 +193,20 @@ nav li {
     background-color: #f8f8f8;
 }
 
+.draftstext {
+    padding : 5px 20px;
+}
+
 /*===============================================================*/
 /*footer*/
 footer{
-    margin-top:100px;
+    margin-top:50px;
     padding:50px;
+    text-align: center;
     background-color: #143774;
     color: #fff;
 }
 
-footer ul{
-    padding-left: 0;
-    list-style: none;
-}
 
 
 /*============================================================*/
@@ -213,7 +243,29 @@ footer ul{
     background-color: #FFC107;
 }
 
+/*newpost page css*/
+.newpost{
+    margin:50px auto;
+}
 
 
+.newinput{
+     /*border:1px solid red;*/
+    display: flex;
+    flex-direction: column;
+}
 
-/*blog section ends*/
+.newinput input{
+    height: 2.5rem;
+     font-size: 1.5rem;
+     margin:0.4rem 0;
+     padding-left: 1rem;
+}
+
+.btn input {
+    padding: 0.5rem 1rem;
+    background-color: #FFC107;
+    border : 0; 
+    box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.2), -2px 0px 10px 0px rgba(0, 0, 0, 0.19);
+
+}

@@ -11,13 +11,15 @@
 	
 	<form action="" method="POST">
 		{% csrf_token%}
-		<div class="btn">
+		<div class="tags btn">
 			<input type="submit" value="Submit">
 		</div>
-		{% if view %}		
-		<div id="tagInput">{{form.tags}}</div>
-		{%endif%}
-		<div id="title">{{form.title}}</div>
+		<div class="newinput">
+			{% if view %}		
+			{{form.tags}}
+			{%endif%}
+			{{form.title}}
+		</div>
 		<div id="descp">{{form.descp}}</div>         
 	</form>
 </article>

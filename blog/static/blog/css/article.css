@@ -2,55 +2,22 @@
 article {
 	min-height: 80vh;
 	margin-top:100px; 
-
 }
 
-article h1,h2 {
+article h1,h2,h3,h4,h5,h6 {
 	color: #016;
 }
-
-
-
-@media (min-width: 786px){
-.main {
-    flex-direction: column;
-    justify-content: flex-start;
-
+footer h2 {
+	color:#fff;
 }
 
-article h1 {
-	font-weight: 900;
-	/*font-size: 3em;*/
-	line-height: 1em;
-	margin-bottom: 0;
+article h1{
+	font-size: 2em;
+}
+.articleheader {
+	margin-top:15px;
 }
 
-article h2 {
-  padding: 28px 0 0 0;
-  margin-top: 0.8em;
-  /*font-size: 36px;*/
-  font-weight: bold;
-}
-
-}
-
-
-
-/*#post status edit btn*/
-.btn {
-	display: flex;
-
-}
-
-.btn a {
-	margin:0 15px 0 0;
-	padding: 3px 20px;
-	text-align: center;
-	font-size: 20px;
-	background-color: #FFC107;
-	border : 0; 
-	box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.2), -2px 0px 10px 0px rgba(0, 0, 0, 0.19);
-}
 
 .content {
 	padding: 0;
@@ -62,24 +29,60 @@ article h2 {
 }
 
 
-
-.newpost{
-	margin:50px auto;
-}
-#tagInput input{
-   	
-    height: 2.5rem;
-    font-size: 1.5rem;
-    border:1px solid blue;
-    padding: 0 5px;
-    margin-top: 10px;
+/*table styles for article*/
+table {
+	display: block;
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	overflow: auto;
 }
 
-#title input{
-   
-    height: 2.5rem;
-    font-size: 1.5rem;
-    border:1px solid blue;
-    padding: 0 5px;
-    margin-top: 10px;
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
 }
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+/*pre styles for aticle*/
+.content pre {
+	padding :1em;
+	background-color: #f8f8f8;
+}
+
+@media (min-width: 786px){
+	.main {
+	    flex-direction: column;
+	    justify-content: flex-start;
+	}
+
+	article h1 {
+		font-weight: 900;
+		font-size: 3em;
+		line-height: 1em;
+		margin-bottom: 0;
+	}
+
+	article h2 {
+	  padding: 28px 0 0 0;
+	  margin-top: 0.8em;
+	  font-size: 2em;
+	  font-weight: bold;
+	}
+
+	.content img {
+		margin-left: 15%;
+		width: 70%;
+	}
+
+}
+
+
+
+
+

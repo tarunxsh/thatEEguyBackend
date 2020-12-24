@@ -4,7 +4,7 @@ function displaysearch() {
 	
 	// var nav-bar =   document.getElementById("nav-bar");
 	if (search.className === "search-div") {
-		search.className += "responsive";
+		search.className += " clicked";
 	} else {
 		search.className = "search-div";
 		navbar.className = "nav-bar";
@@ -13,10 +13,8 @@ function displaysearch() {
 }
 
 function displaynav() {
-	//var search = document.getElementById("search");
-	
 	if (navbar.className === "nav-bar") {
-		navbar.className += "responsive";
+		navbar.className += " clicked";
 	} else {
 		search.className = "search-div";
 		navbar.className = "nav-bar";
