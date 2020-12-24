@@ -1,218 +1,195 @@
-/*oswald: 700 : logo | roboto: 100 300 400 500 900 : content*/
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto+Slab:wght@100;300;400;500;900&display=swap');
-
-/*blur background background-image:  linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));*/
-
-
-* {
+body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto Slab', serif;
-
-    /*border: 1px solid red;*/
+    background-color: white;
+    font-size: 1.15rem;
 }
 
-a {
-    color: inherit;
+a{
     text-decoration: none;
+    color: inherit;
 }
-p a{
-    color:blue;
+
+textarea:focus, input:focus{
+    outline: none;
 }
 
 
-/*===============Nav-css===================*/
+header {
+    /* text-align: center; */
+    background: #f8f8f8;
+    padding: 2em 0;
+    text-align: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+@media (min-width: 786px){
+header {
+    padding-bottom: 1em;
+}
+}
+
+.container {
+    width: 90%;
+    max-width: 980px;
+     /*border: 1px solid red; */
+    margin: 0 auto;
+}
+
+.container-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+@media (min-width: 786px){
+
+.container-flex {
+    flex-direction: row;
+}
+}
 
 .nav-container {
-    text-align: center;
-    background: #000;
-    color: #fff;
-    width: 100%;
-    padding: 10px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    border-bottom: 3px solid #FFC107;
+    /*border: 1px solid blue;*/
+    align-items: center;
 }
-
-.mobile {
-    /*border: 1px solid red;*/
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    padding: .4rem;
-    line-height: 1em;
-}
-
 
 .logo {
-    padding: .5rem;
+      /*border: 1px solid red; */
+    font-size: 2em;
+    font-weight: bold;
 }
 
-
-
-#search {
-    background-repeat: no-repeat;
-    background-position: 3px 5px;
-    line-height: 2.5em;
-    width: 100%;
-    border-radius: 5px;
-    font-size: 1rem;
-    padding-left: 50px;
-    margin-top: 1em;
-}
-
-.search-div,
-.nav-bar {
-    display: none;
-}
-
-.responsive {
-    display: block;
+.search-div {
+      /*border: 1px solid red; */
+      display: none;
 }
 
 nav ul {
-    margin-top: 10px;
+    /* border: 3px solid green; */
+    list-style: none;
     display: flex;
     flex-direction: column;
-    list-style: none;
+    justify-content: center;
+    padding: 0;
 }
 
-
+@media (min-width: 786px){
+nav ul {
+    flex-direction: row;
+}
 nav li {
-    height:40px;
-    line-height: 40px;
-    border-top: 1px solid #fff;
+    margin: 0 1em;
+}
 }
 
-
-
-
-nav a {
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #fff;
+.blog {
+    margin-top: 2em;
 }
 
-/*===============Nav-css-ends===================*/
-
-.body {
+/*.articles {
+    border:1px solid red;
+}
+.sidebar {
+    border:1px solid red;
+}*/
+@media (min-width: 786px){
+.articles {
+    width: 65%;
+    /*border:1px solid red;*/
+}
+.blog {
     min-height: 80vh;
-    margin-top: 45px;
-
+}
+.sidebar {
+    /*border:1px solid red;*/
+    width:30%;
+}
 
 }
 
-/*.article-img {
-    display: none;
-}
-*/
 
-/*==================new tag css========================*/
-.tags {
-    background-color: #FFD107;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    /*smooth scrolling.*/
-    scroll-behavior: smooth;
-    border-bottom: 1px solid #000;
-    align-items: center;
-    font-size: 1.2rem;
+
+.article {
+    /*border:1px solid red;*/
+}
+
+#title {
+    margin-top: 0;
+    color: #143774;
+}
+
+.info {
+    font-size: 1rem;
+}
+
+.tags{
+
+    padding: 10px;
     list-style: none;
-    position:sticky;
-    top:65px;
-    z-index: 0;
-
-}
-
-/*=========hide_scrollbar==========*/
-.tags::-webkit-scrollbar {
-    display: none;
-    /*visibility: hidden;*/
-
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f8f8f8;
 }
 
 
 .tags li {
-    margin: 10px;
+    margin:3px;
+    padding: 5px;
+    text-transform: capitalize;
+    flex-grow: 3;
+    text-align: center;
+    border-radius: 2px;
+    background-color: #FFD107;
+    transition: background-color .2s linear;
+    }
+
+
+    .tags li:hover {
+    background-color: #FFA12F;
+    letter-spacing: 0.2px;
+    transition: .3s  ease;
+    }
+
+@media (min-width: 786px){
+
 }
 
 
-/*=======================main-article-section======================*/
-.articles {
-    /*margin: 20px 10px;  */
-    /*padding: 20px 10px;*/
-   
-    /*border: 1px solid red;*/
-}
-
-.article {
-    padding: 30px 10px;
-
-}
-
-.article:hover {
-    background: #ffd;
-    /*background: red;*/
-    /*border: 2px solid grey;*/
-}
-
-#title {
-    font-size: 1.8rem;
-    line-height: 1em;
-}
-
-#title input{
-    width: 100%;
-    height: 2.5rem;
-    font-size: 1.5rem;
-    border:1px solid blue;
-    padding: 0 5px;
-    margin-top: 10px;
-}
-
-
-#descp {
-    margin-top: 10px;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 1.2rem;
-    word-spacing: 2px;
-    font-weight: 300;
-}
-
-
-
-
-.btn input{
-    width: 100px;
-    height: 35px;
-    background-color: #FFC107;
-    border: 0px;
-    box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.2), -2px 0px 10px 0px rgba(0, 0, 0, 0.19);
+.draftsheader{
+    /*border:1px solid red;*/
+    padding:20px;
     border-radius: 5px;
-    font-size: 1.2em;
-    
+    background-color: #f8f8f8;
 }
 
-.btn input:hover {
-    cursor: pointer;
+/*===============================================================*/
+/*footer*/
+footer{
+    margin-top:100px;
+    padding:50px;
+    background-color: #143774;
+    color: #fff;
 }
+
+footer ul{
+    padding-left: 0;
+    list-style: none;
+}
+
 
 /*============================================================*/
 /*pagination css*/
 .paginated{
-    margin:50px;
+    margin:50px 0;
 }
 
 .paginated ul {
     display: flex;
     flex-direction: row;
     list-style: none;
+    padding: 0;
 }
 
 .paginated li{
@@ -236,147 +213,7 @@ nav a {
     background-color: #FFC107;
 }
 
-/*=============================================================*/
-/*tags css*/
-
-#tags{
-    margin-top: 5px;
-}
-
-#tags a{
-    padding: 2px;
-    border-radius: 3px;
-    background-color: #FFC107;
-}
 
 
-#tagInput input{
-    width: 50%;
-    height: 2.5rem;
-    font-size: 1.5rem;
-    border:1px solid blue;
-    padding: 0 5px;
-}
-
-
-/*===============================================================*/
-/*footer*/
-footer{
-    margin-top: 100px;
-    padding:50px;
-    background-color: #001;
-    color: #fff;
-}
-
-footer ul{
-    list-style: none;
-}
-
-
-
-/*=============================================================*/
-/*responsive css for big screens*/
-@media (min-width:786px) {
-    .nav-container {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin: 0;
-    }
-
-    .mob-icon {
-        display: none;
-    }
-    
-    nav ul {
-        flex-direction: row;
-        margin:0;
-        padding: 0;
-    }
-
-    nav li {
-        margin: .5em;
-        height: 20px;
-        border: 0;
-        line-height: 20px;
-        transition: margin-top .1s ease-out; 
-    }
-
-    nav li:hover {
-        margin-top : .2em;
-    }
-
-    .search-div,
-    .nav-bar {
-        display: inline-block;
-    }
-
-    .search-div {
-        width: 30%;
-    }
-
-    #search {
-        margin: 0;
-    }
-
-    
-    .body{margin-top: 70px;}
-    .blog {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-around;
-    }
-    
-    .articles {
-        width: 60%;
-    }
-
-    
-    /*======================== desktop-TAGS-css===========*/
-    .tags {
-    background-color: #fff;
-    align-self: flex-start;
-    width:400px;
-    flex-wrap: wrap;
-    }
-
-    .tags li {
-    list-style: none;
-    margin:3px;
-    flex-grow: 3;
-    text-align: center;
-    border-radius: 2px;
-    background-color: #FFD107;
-    transition: background-color .2s linear;
-    }
-
-    .tags a{
-    display: inline-block;
-    padding: 5px;
-    text-transform: capitalize;
-    text-decoration: none;
-    color: #000;
-    }
-
-    .tags li:hover {
-    background-color: #FFA12F;
-    letter-spacing: 0.1em;
-    transition: .3s  ease;
-    }
-
-    footer{
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-    }
-}    
-
-
-/*sticky applies when left right becomes sticky | using js*/
-.sticky {
-    position: sticky;
-    top: 50px;
-    left: 10px;
-}
 
 /*blog section ends*/

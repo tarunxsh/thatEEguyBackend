@@ -1,37 +1,37 @@
 .auth {
-	/*height: 80vh;*/
-	margin:104px 0; 
-	padding: 0 15px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	/*font-size: 1.5em;*/
 }
 
 
 .form {
-	width:90%;
-	margin-top: 20px;
+	width: 80%;
 	border: 2px solid #FFC107;
-	padding:0; 
+	padding:10px; 
 }
 
 .form p  {
-	margin:20px;
+	display: flex;
+	flex-direction: column;
 }
 
-.form input {
-	width:100%;
+form input {
 	height: 2rem;
-	font-size: 1rem;
-	padding: 5px; 
 }
 
 .err {
 	border: 2px solid #FFC107;
-	width:70%;
-	padding: 5px;
+	padding: 0 10px;
+	margin-bottom: 15px;
 	background-color: #FA3E3E;
+	color: #fff;
+}
+
+.errorlist {
+	list-style: none;
+	padding: 3px;
+	background-color: #f8f8f8;
 }
 
 #submit input {

@@ -4,30 +4,20 @@
 {% block content %}
 
 
-<section class="blog body" id="blog">
-
-	<!-- =============TAGS-DIV================= -->
-	<!-- desktop right portion starts trends -->
-	<div class="tags">
-		{% for tag in tags %}
-		<li><a href="{% url 'list_by_tag' tag_slug=tag.slug%}">#{{tag.name}}</a></li>
-		{% endfor %}
-	</div>
+<section class="container container-flex blog" id="blog">
 
 	<!-- ===================ARTICLE-DIV================================== -->
-	<!-- middle portion main blog | articles -->
 	<div class="articles" id="articles">
 		{% for post in posts %}
-		<a href="{{post.get_absolute_url}}">
     		<div class="article">
         	<!-- <div class="article-img">
             	<img class="test-img" src="artbg.jpeg" alt="">
         	</div> -->
         	<div class="text">
 
-	            <h1 id="title">{{post.title}}</h1>
-	            <p id="descp">{{post.descp | truncatewords:40|striptags|safe}}</p><br>
-	            <p><span>{{post.author}}</span>&nbsp;|&nbsp;<span>{{post.published_date|naturaltime}}</span></p>
+	            <h2 id="title"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h2>
+	            <p id="descp">{{post.descp | truncatewords:40|striptags|safe}}</p>
+	            <p class="info"><span>{{post.author}}</span>&nbsp;|&nbsp;<span>{{post.published_date|naturaltime}}</span></p>
 	            <p id="tags">
 					{% for tag in post.tags.all %}
 					<a href="{% url 'list_by_tag' tag_slug=tag.slug%}">#{{tag.name}}</a>
@@ -36,40 +26,44 @@
 	            
         	</div>
    		</div>
-   		</a>
 		<hr>
 		{% endfor %}
 	
 
 	<!-- ======================PAGINATION DIV================== -->
-	{% if is_paginated %}
-	<div class="paginated">
-		<ul>
-		{% if page_obj.has_previous %}
-		<li style="background-color: #a2cf6e"><a href="?page={{ page_obj.previous_page_number }}">&laquo;&laquo;</a></li>
-		{% else %}
-		<li class="disabled"><a>&laquo;&laquo;</a></li>
+		{% if is_paginated %}
+		<div class="paginated">
+			<ul>
+			{% if page_obj.has_previous %}
+			<li style="background-color: #a2cf6e"><a href="?page={{ page_obj.previous_page_number }}">&laquo;&laquo;</a></li>
+			{% else %}
+			<li class="disabled"><a>&laquo;&laquo;</a></li>
+			{% endif %}
+			{% for i in paginator.page_range %}
+			{% if page_obj.number == i %}
+			<li class="active"><a>{{ i }}</a></li>
+			{% else %}
+			<li><a href="?page={{ i }}">{{ i }}</a></li>
+			{% endif %}
+			{% endfor %}
+			{% if page_obj.has_next %}
+			<li style="background-color: #a2cf6e"><a href="?page={{ page_obj.next_page_number }}">&raquo;&raquo;</a></li>
+			{% else %}
+			<li class="disabled"><a>&raquo;&raquo;</a></li>
+			{% endif %}
+			</ul>
+		</div>
 		{% endif %}
-		{% for i in paginator.page_range %}
-		{% if page_obj.number == i %}
-		<li class="active"><a>{{ i }}</a></li>
-		{% else %}
-		<li><a href="?page={{ i }}">{{ i }}</a></li>
-		{% endif %}
-		{% endfor %}
-		{% if page_obj.has_next %}
-		<li style="background-color: #a2cf6e"><a href="?page={{ page_obj.next_page_number }}">&raquo;&raquo;</a></li>
-		{% else %}
-		<li class="disabled"><a>&raquo;&raquo;</a></li>
-		{% endif %}
-		</ul>
 	</div>
-	{% endif %}
 	
-
-	</div>
-	<!-- middle portion ends -->
-
+	<!-- ==========SIDEBAR=================== -->
+	<aside class="sidebar">
+		<div class="tags">
+			{% for tag in tags %}
+			<li><a href="{% url 'list_by_tag' tag_slug=tag.slug%}">#{{tag.name}}</a></li>
+			{% endfor %}
+		</div>
+	</aside>
 	
 </section>
 

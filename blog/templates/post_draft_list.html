@@ -2,14 +2,14 @@
 {% load humanize %}
 {% block content %}
 
-<section class="blog body" id="blog">
-  <div class="articles" id="articles">
+<section class="container " id="blog">
+  <div class="drafts" id="articles">
     <br>
-    <div style="padding: 10px;">
+    <div class="draftsheader">
       <h1>My Drafts</h1>
     <p>Below is a listing of your articles ready to be published</p>
     </div>
-    <br><hr><hr><hr>
+    
 <!-- <input type="text" id="search" onkeyup="filterList()" placeholder="Search Drafts .." title="What do you like to learn about?"> -->
 
   {% for post in posts %}
@@ -29,7 +29,6 @@
               </div>  
         	</div>
    		</div>
-		<hr>
 {%endfor%}
 </div>
 </section>
