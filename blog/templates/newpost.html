@@ -2,8 +2,8 @@
 {% load static%}
 
 {% block head %}
-<script src="{% static 'blog/js/tinymce/tinymce.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'blog/js/custom_tinymce.js' %}" ></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -13,14 +13,20 @@
 		{% csrf_token%}
 		<div class="tags btn">
 			<input type="submit" value="Submit">
+			<input type="button" onclick=preview() value="Preview">
 		</div>
 		<div class="newinput">
 			{% if view %}		
 			{{form.tags}}
 			{%endif%}
 			{{form.title}}
-		</div>
-		<div id="descp">{{form.descp}}</div>         
+			{{form.descp}}
+		</div>	
 	</form>
+	<div class="markdown-body" id="preview-container"></div>
 </article>
 {% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="{% static 'blog/js/previewpost.js'%}"></script>
+{%endblock%}

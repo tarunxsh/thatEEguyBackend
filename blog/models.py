@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from tinymce.models import HTMLField
+# from tinymce.models import HTMLField
 from taggit.managers import TaggableManager
 from django.urls import reverse
 
@@ -22,7 +22,8 @@ class Post(models.Model):
 	title = models.CharField(max_length=100)
 	slug = models.SlugField(max_length=250,unique_for_date='published_date',default="asdf")
 	author = models.ForeignKey(User,on_delete=models.SET_NULL,related_name='blog_posts',null=True)
-	descp = HTMLField()
+	# descp = HTMLField()
+	descp = models.TextField()
 	created_date = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)        #not shown in admin / auto update
 	published_date = models.DateTimeField(default=timezone.now)

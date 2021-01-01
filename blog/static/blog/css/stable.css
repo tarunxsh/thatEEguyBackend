@@ -205,6 +205,7 @@ footer{
     text-align: center;
     background-color: #143774;
     color: #fff;
+    
 }
 
 
@@ -246,8 +247,13 @@ footer{
 /*newpost page css*/
 .newpost{
     margin:50px auto;
+    flex-direction: column;
+    justify-content: flex-start;
 }
-
+#id_descp {
+    height: 50vh;
+    padding: 0.5rem;
+}
 
 .newinput{
      /*border:1px solid red;*/
@@ -264,6 +270,7 @@ footer{
 
 .btn input {
     padding: 0.5rem 1rem;
+    margin-right: 10px;
     background-color: #FFC107;
     border : 0; 
     box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.2), -2px 0px 10px 0px rgba(0, 0, 0, 0.19);
