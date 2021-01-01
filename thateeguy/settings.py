@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'h!glek1z)uj#dpxin_xo0bhs#_*w1t3jcnjfe)jjg$9t0k_ds-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','192.168.43.55' , 'thateeguy.herokuapp.com']
 
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    # 'tinymce',
     'taggit',
     'blog',
    
@@ -139,7 +138,7 @@ LOGOUT_URL = 'logout'
 
 #EMAIL CONSOLE BACKEND
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-AUTH_PASSWORD_VALIDATORS = []  #
+# AUTH_PASSWORD_VALIDATORS = []  #
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
