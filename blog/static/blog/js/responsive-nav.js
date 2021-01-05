@@ -16,7 +16,8 @@ function displaynav() {
 	if (navbar.className === "nav-bar") {
 		navbar.className += " clicked";
 	} else {
-		search.className = "search-div";
+		// search div not a feature now
+		// search.className = "search-div";
 		navbar.className = "nav-bar";
 	}
 

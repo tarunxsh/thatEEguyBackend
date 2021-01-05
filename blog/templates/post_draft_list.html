@@ -4,7 +4,7 @@
 
 <section class="container blog">
   <div class="drafts">
-    <div class="draftsheader">
+    <div class="bg draftsheader">
       <h1>My Drafts</h1>
       <p>Below is a listing of your articles ready to be published</p>
     </div>
@@ -12,7 +12,7 @@
 
     {% for post in posts %}
     <br>
-    <div class="article draftsheader draftstext">
+    <div class="article bg">
       	<div class="text ">
             <h2 id="title"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h2>
             <p id="descp">{{post.descp | truncatewords:40|striptags|safe}}</p>

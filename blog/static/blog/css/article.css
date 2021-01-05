@@ -12,7 +12,13 @@ footer h2 {
 
 article h1{
 	font-size: 2em;
+	font-weight: 900;
 }
+
+article p {
+	font-size: 1.2em;
+}
+
 
 .articleheader {
 	margin-top:15px;
@@ -30,6 +36,9 @@ article h1{
 	.main {
 	    flex-direction: column;
 	    justify-content: flex-start;
+	}
+	article h1{
+		font-size: 2.5em;
 	}
 }
 
