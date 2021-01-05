@@ -4,6 +4,10 @@ function preview(){
 	if(postinput.hidden == false){
 		postinput.hidden = true;
 		preview_container.innerHTML = marked(postinput.value);
+		document.querySelectorAll('#preview-container > pre > code').forEach(block => {
+  		// then highlight each
+  		hljs.highlightBlock(block);
+		});
 	}
 	else {
 		postinput.hidden=false;
