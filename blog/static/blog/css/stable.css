@@ -78,11 +78,18 @@ nav ul li{
     padding: 0;
     border-bottom: 1px solid #143774;
 }
+nav ul li:last-child{
+    border:0;
+}
 
 nav a {
     display: block;
     margin:0;
     padding: 0.4rem;
+}
+
+nav a:hover{
+    color: blue;
 }
 
 
@@ -140,6 +147,12 @@ nav {
 
 .info {
     font-size: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info span{
+    margin-right: 10px; 
 }
 
 

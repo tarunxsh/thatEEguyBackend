@@ -25,8 +25,11 @@
 		<div class="title">
 			<h1>{{post.title}}</h1>
 			<p class="info">
-				{% if post.status == 'published' %}<span>{{ post.published_date|naturaltime }}</span> |{% endif %}
-				<span><b>{{post.author}}</b></span> | <span>5 min read</span>
+				{% if post.status == 'published' %}
+				<span>{{ post.published_date|naturalday }}</span>
+				{% endif %}
+				<span><b>{{post.author}}</b></span>
+				<span id="readingTime">5 min read</span>
 			</p>
 		</div>
 		{% if user.is_authenticated and  request.user == post.author %}
@@ -51,6 +54,12 @@
   	var content = document.getElementById('content');
     var data = {{post.descp|js}};
     content.innerHTML = marked(data);
+ 	// =======================================
+ 	// WORD COUNT
+ 	words = content.innerText.split(' ');
+ 	document.getElementById('readingTime').innerText = Math.round(words.length/200)+" min read";
+
+
   </script>
   <script>hljs.initHighlightingOnLoad();</script>
 {%endblock%}

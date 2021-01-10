@@ -16,7 +16,7 @@
       	<div class="text ">
             <h2 id="title"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h2>
             <p id="descp">{{post.descp | truncatewords:40|striptags|safe}}</p>
-            <p class="info"><span>{{post.author}}</span> | <span>{{post.created_date|naturaltime}}</span></p>
+            <p class="info"><span>{{post.author}}</span> | <span>{{post.created_date|naturalday}}</span></p>
             <div class="tags btn">
               <li><a href="{%url 'post_edit' pk=post.pk%}">edit</a></li>
               <li><a href="{%url 'post_publish' pk=post.pk%}">publish</a></li>
