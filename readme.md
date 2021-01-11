@@ -5,5 +5,8 @@
 ![Registration Page.](/staticfiles/v2.0/thateeguy_register.png "Registration Page.")
 ![Password Reset Page.](/staticfiles/v2.0/thateeguy_password_reset.png "Password Reset Page.")
 ![Drafts Page.](/staticfiles/v2.0/thateeguy_drafts.png "Drafts Page.")
-![Responsive Index.](/staticfiles/v2.0/thateeguy_responsive_index.png "Responsive Index.")
-![Paging, Tags and Footer.](/staticfiles/v2.0/thateeguy_paging_footer.png "Paging, Tags and Footer.")
+
+## Responsive
+| Responsive Index | Paging, Tags and Footer |
+|:------------- |:-------------:|
+|![Responsive Index.](/staticfiles/v2.0/thateeguy_responsive_index.png "Responsive Index.")|![Paging, Tags and Footer.](/staticfiles/v2.0/thateeguy_paging_footer.png "Paging, Tags and Footer.")|
