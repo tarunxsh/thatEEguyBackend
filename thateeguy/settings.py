@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-import django_heroku
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -26,7 +26,7 @@ SECRET_KEY = 'h!glek1z)uj#dpxin_xo0bhs#_*w1t3jcnjfe)jjg$9t0k_ds-'
 DEBUG = True
 # DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','192.168.43.55' , 'thateeguy.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '*']
 
 
 # Application definition
@@ -83,9 +83,18 @@ WSGI_APPLICATION = 'thateeguy.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_DB'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
@@ -139,6 +148,3 @@ LOGOUT_URL = 'logout'
 #EMAIL CONSOLE BACKEND
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # AUTH_PASSWORD_VALIDATORS = []  #
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
