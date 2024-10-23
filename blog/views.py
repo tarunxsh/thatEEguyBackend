@@ -129,12 +129,12 @@ def post_draft_list(request):
 # DELETE POST
 @login_required
 def post_remove(request, pk,slug):
-    post = Post.objects.get(pk=pk)
-    post.delete()
-    if slug=="drafts":
-    	return redirect('post_draft_list')
-    else:
-    	return redirect('index')
+	post = Post.objects.get(pk=pk)
+	post.delete()
+	if slug=="drafts":
+		return redirect('post_draft_list')
+	else:
+		return redirect('index')
 
 # ===========================================================================================
 # ABOUT PAGE

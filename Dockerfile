@@ -1,5 +1,5 @@
 # Use the official Python base image
-FROM python:3.8
+FROM python:3.13.0
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
@@ -16,6 +16,9 @@ COPY . .
 # using poetry
 RUN pip install poetry
 RUN poetry install
+
+# Convert static asset files
+RUN poetry run python manage.py collectstatic --no-input
 
 # Expose the port the app will run on
 EXPOSE 8000

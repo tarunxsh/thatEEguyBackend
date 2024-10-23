@@ -1,18 +1,18 @@
 [tool.poetry]
-name = "thateeguybackend"
+name = "blogger"
 version = "0.1.0"
-description = ""
+description = "A django app"
 authors = ["Tarunesh Gautam"]
 readme = "README.md"
-package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.8"
-psycopg2 = "2.9.10"
-django = "2.2.18"
-django-taggit = "1.2.0"
-gunicorn = "19.9.0"
-whitenoise = "4.1.2"
+python = "^3.13"
+django = "^5.1.2"
+django-taggit = "^6.1.0"
+gunicorn = "^23.0.0"
+whitenoise = "^6.7.0"
+psycopg = "^3.2.3"
+dj-database-url = "^2.3.0"
 
 
 [build-system]
