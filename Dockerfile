@@ -17,8 +17,5 @@ COPY . .
 RUN pip install poetry
 RUN poetry install
 
-# Convert static asset files
-RUN poetry run python manage.py collectstatic --no-input
-
 # Expose the port the app will run on
 EXPOSE 8000
