@@ -5,12 +5,15 @@ body {
     font-family: 'Noto Sans HK', sans-serif;
 }
 
-a{
+a {
     text-decoration: none;
     color: inherit;
 }
 
-textarea:focus, input:focus{
+
+
+textarea:focus,
+input:focus {
     outline: none;
 }
 
@@ -26,9 +29,9 @@ textarea:focus, input:focus{
     /*border:1px solid red;*/
     text-align: center;
     position: sticky;
-    top:0;
+    top: 0;
     border-radius: 0;
-    border-bottom:2px solid #FFD107;
+    border-bottom: 2px solid #FFD107;
 }
 
 .container {
@@ -39,11 +42,11 @@ textarea:focus, input:focus{
 }
 
 
-.nav-container{
-    padding:  0.6rem;
+.nav-container {
+    padding: 0.6rem;
 }
 
-@media (min-width: 786px){
+@media (min-width: 786px) {
     .container-flex {
         display: flex;
         flex-direction: row;
@@ -58,37 +61,38 @@ textarea:focus, input:focus{
 }
 
 .search-div {
-      display: none;
+    display: none;
 }
 
 .mobile {
-      display: flex;
-      justify-content: space-between; 
+    display: flex;
+    justify-content: space-between;
 }
 
 
 
 nav ul {
-    margin:0;
+    margin: 0;
     list-style: none;
     padding: 0;
 }
 
-nav ul li{
+nav ul li {
     padding: 0;
     border-bottom: 1px solid #143774;
 }
-nav ul li:last-child{
-    border:0;
+
+nav ul li:last-child {
+    border: 0;
 }
 
 nav a {
     display: block;
-    margin:0;
+    margin: 0;
     padding: 0.4rem;
 }
 
-nav a:hover{
+nav a:hover {
     color: blue;
 }
 
@@ -97,13 +101,14 @@ nav a:hover{
 /*initially nav display is none*/
 /*onclick it is block*/
 nav {
-    display:none;
+    display: none;
 }
+
 .clicked {
     display: block;
 }
 
-@media (min-width: 786px){
+@media (min-width: 786px) {
     nav {
         display: block;
     }
@@ -112,9 +117,11 @@ nav {
         display: flex;
         justify-content: center;
     }
+
     nav ul li {
         border: 0;
     }
+
     .mob-icon {
         display: none;
     }
@@ -127,13 +134,13 @@ nav {
 }
 
 
-@media (min-width: 786px){
+@media (min-width: 786px) {
     .articles {
         width: 68%;
     }
-   
+
     .sidebar {
-        width:30%;
+        width: 30%;
     }
 }
 
@@ -151,12 +158,12 @@ nav {
     flex-wrap: wrap;
 }
 
-.info span{
-    margin-right: 10px; 
+.info span {
+    margin-right: 10px;
 }
 
 
-.tags{
+.tags {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -164,7 +171,7 @@ nav {
 
 
 .tags li {
-    margin:3px;
+    margin: 3px;
     padding: 5px;
     text-transform: capitalize;
     flex-grow: 3;
@@ -172,27 +179,28 @@ nav {
     border-radius: 2px;
     background-color: #FFD107;
     transition: background-color .2s linear;
-    }
+}
 
-.btn li{
+.btn li {
     flex-grow: initial;
 }
 
 .tags li:hover {
     background-color: #FFA12F;
     letter-spacing: 0.2px;
-    transition: .3s  ease;
+    transition: .3s ease;
 }
 
 
 .article {
-    padding-left: 1.5em;   
+    padding-left: 1.5em;
 }
 
 .drafts {
     margin-top: 2em;
 }
-.draftsheader{
+
+.draftsheader {
     padding: 20px;
 }
 
@@ -200,20 +208,20 @@ nav {
 
 /*===============================================================*/
 /*footer*/
-footer{
-    margin-top:50px;
-    padding:50px;
+footer {
+    margin-top: 50px;
+    padding: 50px;
     text-align: center;
     background-color: #143774;
     color: #fff;
-    
+
 }
 
 
 
 /*============================================================*/
 /*pagination css*/
-.paginated{
+.paginated {
     display: flex;
     justify-content: center;
 }
@@ -225,15 +233,15 @@ footer{
     padding: 0;
 }
 
-.paginated li{
-    margin:0;
-    padding:0;
+.paginated li {
+    margin: 0;
+    padding: 0;
     border: 1px solid #000;
     cursor: pointer;
     transition: background-color .2s ease-in;
 }
 
-.paginated a{
+.paginated a {
     display: inline-block;
     padding: 15px 20px;
 }
@@ -242,38 +250,39 @@ footer{
     background-color: #FFC107;
 }
 
-.paginated .active{
+.paginated .active {
     background-color: #FFC107;
 }
 
 /*newpost page css*/
-.newpost{
-    margin:50px auto;
+.newpost {
+    margin: 50px auto;
     flex-direction: column;
     justify-content: flex-start;
 }
+
 #id_descp {
     height: 50vh;
     padding: 0.5rem;
 }
 
-.newinput{
+.newinput {
     display: flex;
     flex-direction: column;
 }
 
-.newinput input{
+.newinput input {
     height: 2.5rem;
-     font-size: 1.5rem;
-     margin:0.4rem 0;
-     padding-left: 1rem;
+    font-size: 1.5rem;
+    margin: 0.4rem 0;
+    padding-left: 1rem;
 }
 
 .btn input {
     padding: 0.5rem 1rem;
     margin-right: 10px;
     background-color: #FFC107;
-    border : 0; 
+    border: 0;
     box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.2), -2px 0px 10px 0px rgba(0, 0, 0, 0.19);
 
 }

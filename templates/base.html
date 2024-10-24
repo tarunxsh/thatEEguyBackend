@@ -1,78 +1,105 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JLTR38SBBV"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-JLTR38SBBV");
+    </script>
 
-<head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JLTR38SBBV"></script>
-	<script>
-  		window.dataLayer = window.dataLayer || [];
-  		function gtag(){dataLayer.push(arguments);}
-  		gtag('js', new Date());
- 		gtag('config', 'G-JLTR38SBBV');
-	</script>
+    <link
+      rel="icon"
+      href="{% static 'blog/img/icon.png'%}"
+      type="image/x-icon"
+    />
+    <meta name="viewport" content="width=device-width , initial-scale=1.0" />
+    <meta name="author" content="Tarunesh" />
+    <title>thatEEguy 2.0</title>
 
-	<link rel="icon" href="{% static 'blog/img/icon.png'%}" type="image/x-icon">
-	<meta name="viewport" content="width=device-width , initial-scale=1.0">
-	<meta name="author" content="Tarunesh" />
-	<title>thatEEguy 2.0</title>
-	
-	<!-- ===============================CSS======================================= -->
-	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/stable.css'%}">
-	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/article.css'%}">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- ===============================CSS======================================= -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'blog/css/stable.css'%}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'blog/css/article.css'%}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-	
-	{% block head %}
-	<!-- ADDITIONAL LINKS AND SCRIPTS -->
-	{% endblock %}
-	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/custom.css'%}">
-</head>
+    {% block head %}
+    <!-- ADDITIONAL LINKS AND SCRIPTS -->
+    {% endblock %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'blog/css/custom.css'%}"
+    />
+  </head>
 
-<body>
-<!-- header section -->
-<header class="header bg">
-	<div class="container container-flex nav-container">
+  <body>
+    <!-- header section -->
+    <header class="header bg">
+      <div class="container container-flex nav-container">
+        <div class="mobile">
+          <div class="logo">
+            <span><a href="{% url 'index' %}">thatEEguy</a></span>
+          </div>
+          <div class="mob-icon">
+            <i class="fa fa-bars fa-2x" onclick="displaynav()"></i>
+          </div>
+          <!-- <div class="mob-icon"><i class="fa fa-search fa-2x" onclick="displaysearch()"></i></div> -->
+        </div>
 
-		<div class="mobile">
-			<div class="logo">
-				<span><a href="{% url 'index' %}">thatEEguy</a></span>
-			</div>
-			<div class="mob-icon"><i class="fa fa-bars fa-2x" onclick="displaynav()"></i>
-			</div>
-			<!-- <div class="mob-icon"><i class="fa fa-search fa-2x" onclick="displaysearch()"></i></div> -->
-		</div>
-		
-		
-		<!-- <div class="search-div" id="search-div">
+        <!-- <div class="search-div" id="search-div">
 			<input type="text" name="search" placeholder="search here.." id="search" 
 			style="background-image: url('{% static 'blog/img/search.png'%}');">
 		</div> -->
 
-		<nav class="nav-bar" id="nav-bar">
-			<ul>
-				<li><a href="{% url 'index' %}">Home</a></li>
-				<li><a href="{% url 'about'%}">About</a></li>
+        <nav class="nav-bar" id="nav-bar">
+          <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about'%}">About</a></li>
 
-				{%if user.is_authenticated%}
-				<li><a href="{% url 'post_draft_list' %}">Drafts</a></li>
-				<li><a href="{% url 'newpost' %}">New Post</a></li>
-				<li><a href="{% url 'logout' %}">Logout</a></li>
-				
-				{% else %}
-				<li><a href="{% url 'login' %}">Login</a></li>
-				<li><a href="{% url 'register' %}">Register</a></li>
-				{% endif %}
+            {%if user.is_authenticated%}
+            <li><a href="{% url 'post_draft_list' %}">Drafts</a></li>
+            <li><a href="{% url 'newpost' %}">New Post</a></li>
+            <form id="logout-form" method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+            </form>
+            <li>
+              <a
+                href="javascript:{}"
+                onclick="document.getElementById('logout-form').submit();return false;"
+                >Logout</a
+              >
+            </li>
 
-			</ul>
-		</nav>
-	</div>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
 
-
-<!-- =======Feature-not-stable-yet========================= -->
-<!-- <div class="feature-container">
+      <!-- =======Feature-not-stable-yet========================= -->
+      <!-- <div class="feature-container">
     <div class="scrolling-wrapper" role="region" aria-label="gallery" tabindex="0">
     	<div class="f1 f-item">
         <img src="https://www.hackingwithswift.com/uploads/matrix.jpg" alt="" class="fimg"></div>
@@ -83,21 +110,22 @@
 </div>
 </div>
  -->
+    </header>
 
-</header>
+    {% block content %} {% endblock %}
 
-{% block content %}
-{% endblock %}
-
-
-<footer>
-	<div class="logo">
-		<span><a href="{% url 'index' %}">thatEEguy</a></span>
-	</div>
-	<div>Made with <span style="color: red;font-size: 1.2em;">&hearts;</span></div>
-</footer>
-<script type="text/javascript" src="{% static 'blog/js/responsive-nav.js'%}"></script>
-{% block script %}
-{%endblock%}
-</body>
+    <footer>
+      <div class="logo">
+        <span><a href="{% url 'index' %}">thatEEguy</a></span>
+      </div>
+      <div>
+        Made with <span style="color: red; font-size: 1.2em">&hearts;</span>
+      </div>
+    </footer>
+    <script
+      type="text/javascript"
+      src="{% static 'blog/js/responsive-nav.js'%}"
+    ></script>
+    {% block script %} {%endblock%}
+  </body>
 </html>
